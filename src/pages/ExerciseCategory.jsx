@@ -32,7 +32,9 @@ export default function ExerciseCategory() {
             const searchedExercises = exercises.filter((exercise) => exercise.name.toLowerCase().includes(search.toLowerCase()) || exercise.bodyPart.toLowerCase().includes(search.toLowerCase()) || exercise.equipment.toLowerCase().includes(search.toLowerCase()) || exercise.target.toLowerCase().includes(search.toLowerCase()));
 
             setSearch("");
-            setFilterData(searchedExercises)
+            setFilterData(searchedExercises);
+
+            window.scrollTo({ top: 1000, behavior: 'smooth' });
         }
     }
 
@@ -49,10 +51,10 @@ export default function ExerciseCategory() {
                 </Button>
             </Box>
             <Box sx={{position: 'relative', width: '100%', p: '40px'}}>
-                <FlipPage bodyPartsData={bodyPartsData} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
+                <FlipPage bodyPartsData={bodyPartsData} setBodyPart={setBodyPart}/>
             </Box>
         </Stack>
-        <Exercises setFilterData={setFilterData} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+        <Exercises filterData={filterData} setFilterData={setFilterData} bodyPart={bodyPart} />
         </>
     )
 }

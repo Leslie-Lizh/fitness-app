@@ -6,6 +6,7 @@ import 'react-horizontal-scrolling-menu/dist/styles.css';
 import RightArrowIcon from '../assets/icons/right-arrow.png';
 import LeftArrowIcon from '../assets/icons/left-arrow.png';
 
+// The scrollPrev and scrollNext is standard term that react recoginizes so don't change them. 
 const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
 
@@ -26,12 +27,13 @@ const RightArrow = () => {
   );
 };
 
-export default function FlipPage({bodyPartsData, bodyPart, setBodyPart}) {
+// LeftArrow and RightArrow is standard term in ScrollMenu module
+export default function FlipPage({bodyPartsData, setBodyPart}) {
     return(
         <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
             {bodyPartsData.map((parts) => (
             <Box key={parts.id || parts} itemId={parts.id || parts} title={parts.id || parts} m='0 40px'>
-                <BodyPart parts={parts} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
+                <BodyPart parts={parts} setBodyPart={setBodyPart}/>
             </Box>
             )
         )}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import { Box } from '@mui/material'
@@ -7,7 +7,6 @@ import Home from './pages/Home'
 import ExerciseCategory from './pages/ExerciseCategory'
 import ExerciseDetail from './pages/ExerciseDetail'
 import FitnessTracker from './pages/FitnessTracker'
-import Footer from './components/Footer'
 
 function App() {
   // const [apiData, setApiData] = useState([])
@@ -70,7 +69,6 @@ function App() {
           <Route path='/exercise/:id' element={<ExerciseDetail />} />
           <Route path='/tracker' element={<FitnessTracker />} />
         </Routes>
-        <Footer />
       </Box>
       {/* {data.map(d => <p key={d}>{d}</p>)} */}
       {/* {airData?.map((data, idx) => <p key={idx}>{data?.fields?.target_muscle}</p>)} */}
