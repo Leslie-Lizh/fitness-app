@@ -31,20 +31,6 @@ export default function ExerciseCategory() {
         fetchExercises();
     }, [])
 
-    // async function handleSearch() {
-    //     if(search) {
-    //         const url = 'https://exercisedb.p.rapidapi.com/exercises?limit=1400'
-    //         const exercises = await fetchData(url, exerciseOptions);
-
-    //         const searchedExercises = exercises.filter((exercise) => exercise.name.toLowerCase().includes(search.toLowerCase()) || exercise.bodyPart.toLowerCase().includes(search.toLowerCase()) || exercise.equipment.toLowerCase().includes(search.toLowerCase()) || exercise.target.toLowerCase().includes(search.toLowerCase()));
-
-    //         setSearch("");
-    //         setFilterData(searchedExercises);
-
-    //         window.scrollTo({ top: 1000, behavior: 'smooth' });
-    //     }
-    // }
-
     return(
         <>
         <Stack alignItems='center' mt='50px' justifyContent='center' p='30px'>
@@ -52,7 +38,6 @@ export default function ExerciseCategory() {
                 All awesome exercises in the pocket 
             </Typography>
             <Box position='relative' mb='200px'>
-                {/* <TextField sx={{input: {fontWeight: '600', border: 'none', borderRadius: '10px'}, width: {lg: '1100px', xs: '400px'}, borderRadius: '40px', mt: '30px'}} height='70px' value={search} type="text" placeholder='Search exercises with some keyword like arm' onChange={(e) => setSearch(e.target.value)} /> */}
                 <Button className='search-btn' sx={{bgcolor: '#ff2625', color: 'white', textTransform: 'none', width: {lg: '180px', xs: '90px'}, fontSize: {lg: '22px', xs: '18px'}, height: '52px', position: 'absolute', mt: '30px', ml: '-400px'}} onClick={() => setisBodyPart(true)}>
                     By Body Part
                 </Button>

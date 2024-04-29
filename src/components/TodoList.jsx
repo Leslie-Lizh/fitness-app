@@ -40,7 +40,6 @@ export default function TodoList({incompleteTodo, deleteTodo, completeTodo}) {
                         <TextField value={todo?.fields?.equipment} sx={{width: '180px'}}></TextField>
                         <TextField value={todo?.fields?.description} multiline rows={3} sx={{width: '190px'}}></TextField>
                         <TextField value={todo?.fields?.complete_by} sx={{width: '150px'}}></TextField>
-                        {/* <Checkbox checked={false} onChange={() => handleComplete(todo.id)} sx={{ml: '50px', alignItems: 'flex-start'}}></Checkbox> */}
                         <CheckTask todo={todo} completeTodo={completeTodo}/>
                         <Button sx={{ml: '80px', alignItems: 'flex-start'}} onClick={() => handleDelete(todo.id)}>❌</Button>
                     </Stack>

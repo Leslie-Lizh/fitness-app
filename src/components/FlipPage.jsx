@@ -56,7 +56,7 @@ export default function FlipPage({bodyPartsData, setBodyPart, eqptData, setEqpt,
     )} else {
           return(
             <Stack>
-              <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'start', width: '100%', overflowX: 'scroll', scrollBehavior: 'smooth'}} ref={containerRef}>
+              <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'start', width: '1400px', overflowX: 'scroll', scrollBehavior: 'smooth'}} ref={containerRef}>
                   {eqptData.map((parts) => (
                   <Box key={parts.id || parts} m='0 40px'>
                       <EquipmentPart parts={parts} setEqpt={setEqpt}/>
@@ -64,7 +64,7 @@ export default function FlipPage({bodyPartsData, setBodyPart, eqptData, setEqpt,
                   )
                   )}
               </div>
-              <Stack direction='row' justifyContent='center' gap='500px'>
+              <Stack direction='row' justifyContent='center' gap='1450px' sx={{position: 'relative', top: '-180px'}}>
                 <Typography className="left-key" onClick={() => {handleScroll(-SCROLLWIDTH)}}>
                   <img src={LeftArrowIcon} />
                 </Typography>
