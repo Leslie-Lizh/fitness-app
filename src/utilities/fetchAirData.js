@@ -27,7 +27,7 @@ export const postData = async (payload) => {
     body: JSON.stringify(payload),
   });
   const json = await response.json();
-  return json;
+  return json; // this returns the post data object
 };
 
 export const deleteData = async (id) => {

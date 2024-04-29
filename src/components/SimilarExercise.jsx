@@ -4,7 +4,7 @@ import ExerciseCard from './ExerciseCard'
 export default function SimilarExercise({muscleData, eqptData}) {
     let similarMuscle;
     if (muscleData.length === 0) {
-        similarMuscle = <div>No Data</div>
+        similarMuscle = <div>Data is loading</div>
     } else if (muscleData.length > 3) {
         const slicedMuscle = muscleData.slice(0, 3)
         similarMuscle = slicedMuscle.map((data) => <ExerciseCard data={data} key={data.id} />)
@@ -14,7 +14,7 @@ export default function SimilarExercise({muscleData, eqptData}) {
 
     let similarEqpt;
     if (eqptData.length === 0) {
-        similarEqpt = <div>No Data</div>
+        similarEqpt = <div>Data is loading</div>
     } else if (eqptData.length > 3) {
         const slicedEqpt = eqptData.slice(0, 3)
         similarEqpt = slicedEqpt.map((data) => <ExerciseCard data={data} key={data.id} />)

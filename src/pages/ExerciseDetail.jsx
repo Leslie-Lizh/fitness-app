@@ -28,6 +28,8 @@ export default function ExerciseDetail() {
         fetchExerciseData(); // network request will not be sent untill the id is generated, which happens when a card is clicked.
     }, [id])
 
+    if (!exerciseDetail) return <div>Data is loading</div>;
+
     return(
         <Box sx={{mt: {lg: '70px', xs: '50px'}}}>
             <DetailView exerciseDetail={exerciseDetail}/>

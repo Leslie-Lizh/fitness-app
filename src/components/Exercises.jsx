@@ -5,7 +5,7 @@ import { Stack, Box, Typography } from "@mui/material"
 import { exerciseOptions, fetchData } from "../utilities/fetchData"
 import ExerciseCard from './ExerciseCard'
 
-export default function Exercises({filterData, setFilterData, bodyPart}) {
+export default function Exercises({filterData, setFilterData, bodyPart, eqpt, isBodyPart}) {
 
     const exercisesPerPage = 6; // limit no.of exercise card to 6 per page
     const [currentPage, setCurrentPage] = useState(1); // default page
@@ -24,15 +24,23 @@ export default function Exercises({filterData, setFilterData, bodyPart}) {
     useEffect(()=> {
         async function fetchSelectedExercise() {
             let selectedExercise;
-            if (bodyPart === 'all') {
-                selectedExercise = await fetchData('https://exercisedb.p.rapidapi.com/exercises?limit=1400', exerciseOptions);
+            if (isBodyPart === true) {
+                if (bodyPart === 'all') {
+                    selectedExercise = await fetchData('https://exercisedb.p.rapidapi.com/exercises?limit=1400', exerciseOptions);
+                } else {
+                    selectedExercise = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}?limit=1400`, exerciseOptions);
+                }
             } else {
-                selectedExercise = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}?limit=1400`, exerciseOptions);
+                if (eqpt === 'all') {
+                    selectedExercise = await fetchData('https://exercisedb.p.rapidapi.com/exercises?limit=1400', exerciseOptions);
+                } else {
+                    selectedExercise = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/equipment/${eqpt}?limit=1400`, exerciseOptions);
+                }
             }
             setFilterData(selectedExercise);
         }
         fetchSelectedExercise();
-    }, [bodyPart]); // by default when page first load, the filterData will use the state of 'all' exercises because it is initial state of the bodyPart defined in ExerciseCategory 
+    }, [bodyPart, eqpt, isBodyPart]); // by default when page first load, the filterData will use the state of 'all' exercises because it is initial state of the bodyPart defined in ExerciseCategory 
 
     return(
         <Box id='exercises' mt='50px' p='20px' sx={{mt: {lg: '110px', xs: '40px'}}}>

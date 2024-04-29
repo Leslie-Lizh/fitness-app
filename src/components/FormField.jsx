@@ -12,10 +12,11 @@ export default function FormField({addTodo}) {
     const [date, setDate] = useState('2024-04-30')
     const [instruction, setInstruction] = useState('')
 
-
+    const [progress, setProgress] = useState("")
 
     async function handleSubmission(e) {
         e.preventDefault();
+        setProgress("loading")
 
         const formData = new FormData(e.target); 
         const data = Object.fromEntries(formData);
@@ -30,12 +31,12 @@ export default function FormField({addTodo}) {
             }
         }
         const newData = await postData(payload)
-        console.log(newData)
         addTodo(newData);
         setBodyPart("");
         setEquipment("");
         setDate("2024-04-30");
         setInstruction("");
+        setProgress("done")
     }    
 
     return(
@@ -64,6 +65,7 @@ export default function FormField({addTodo}) {
                         <TextField name="date" required value={date} onChange={(e) => setDate(e.target.value)} label='Date of completion' type="date" sx={{height: '10px', ml: '10px'}}></TextField>
                         <TextField name="instruction" required value={instruction} onChange={(e) => setInstruction(e.target.value)} label='How you want to perform' sx={{width: '300px', ml: '20px'}} multiline rows={3}></TextField>
                         <Button type="submit" variant='contained' sx={{height: '40px', ml: '10px'}}>Submit</Button>
+                        <span>{progress === "loading" ? <progress /> : null}</span>
                     </Stack>
             </fieldset>
         </form>

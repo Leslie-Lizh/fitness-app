@@ -70,8 +70,6 @@ function App() {
           <Route path='/tracker' element={<FitnessTracker />} />
         </Routes>
       </Box>
-      {/* {data.map(d => <p key={d}>{d}</p>)} */}
-      {/* {airData?.map((data, idx) => <p key={idx}>{data?.fields?.target_muscle}</p>)} */}
     </>
   )
 }
